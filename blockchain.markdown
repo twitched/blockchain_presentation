@@ -87,6 +87,8 @@ H(Star Wars as a compressed video) → 31c4ba98d4a14a71b6da13830f1c3c508cbf93c89
 H(Bob should pay Alice 4 BitCoins) → fef45d0c7e08bfafa7551e9ec27ee06c9fba6ef86665e1a8f77eeb23b495e1e9
 
 H(Bob should pay Alice 5 BitCoins) → 3ef34acc394f1ac5d5671c339ffe65b5aa976f88862fe4e87c24b4e3f237cce0   
+
+SHA256
 </div>
 
 -----------------
