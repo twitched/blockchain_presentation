@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>BitCoin and the Blockchain</title>
+    <meta name="description" content="BitCoin and the Blockchain"/>
+
+          <meta name="author" content="Doug Twitchell" />
+    
+    <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+    
+
+    <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/github.css">
+    
+    <!-- For chalkboard -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+      </head>
+
+  <style>
+    .reveal section img { background:none; border:none; box-shadow:none; }
+    .reveal .footer {
+      position: absolute;
+      bottom: 1em;
+      left: 1em;
+      font-size: 0.5em;
+    }
+  </style>
+
+<body>
+  
+  <div class="reveal">
+  <div class='footer'>
+    <div id="hitbtc-ticker" class="hit-small"></div>
+    <script type="text/javascript">
+        (function() {
+            var po = document.createElement("script");
+            po.type = "text/javascript";
+            po.async = true;
+            po.src = "https://hitbtc.com/get_widget?pair=btcusd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+         // You can construct widget dynamically by calling hitbtc.widget("myDiv", "small", null, "btcusd");
+    </script>
+  </div>
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+
+  <section>
+    <h1>BitCoin and the Blockchain</h1>
+    <h3>Doug Twitchell</h3>
+    <p>
+    <h4>May 16, 2016</h4>
+    </p>
+  </section>
+
+  
+  <section id="doug-twitchell" class="slide level2">
+  <h2>Doug Twitchell</h2>
+  <ul>
+  <li>PhD, University of Arizona</li>
+  <li>Illinois State University, 11 years</li>
+  <li>Boise State University, since August</li>
+  <li><span class="citation" data-cites="dtwitched">@dtwitched</span></li>
+  </ul>
+  </section>
+  <section class="slide level2">
+  
+  <figure>
+  <img src="img/WannaCrypt.jpg" id="wannacryptimg" class="wannacryptimg" style="float:left;width=700px;padding:5px;border:none" />
+  </figure>
+  <a class="twitter-timeline" data-width="300" data-height="650" href="https://twitter.com/actual_ransom" style="float:right">Tweets by actual_ransom</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </section>
+  <section class="slide level2">
+  
+  <blockquote class="twitter-tweet tw-align-center" data-lang="en" style="text-align:center">
+  <p lang="en" dir="ltr">
+  Pre-ransomware advice:<br>- Backup<br>- Patch<br>- Turn off unneeded features<br><br>Post-ransomware advice:<br>- Backup<br>- Patch<br>- Turn off unneeded features
+  </p>
+  — matt blaze (<span class="citation" data-cites="mattblaze">@mattblaze</span>) <a href="https://twitter.com/mattblaze/status/863468401708216321">May 13, 2017</a>
+  </blockquote>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </section>
+  <section id="today" class="slide level2">
+  <h2>Today</h2>
+  <ul>
+  <li>BitCoin and its building blocks</li>
+  <li>Ethereum and &quot;smart&quot; contracts</li>
+  <li>Private blockchains</li>
+  </ul>
+  </section>
+  <section id="itcoin" class="slide level2">
+  <h2>₿itCoin</h2>
+  <table>
+  <thead>
+  <tr class="header">
+  <th style="text-align: left;"></th>
+  <th style="text-align: center;">BitCoin</th>
+  <th style="text-align: center;">Cash</th>
+  <th style="text-align: center;">Payment Card</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="odd">
+  <td style="text-align: left;">Use for Purchases</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;">X</td>
+  </tr>
+  <tr class="even">
+  <td style="text-align: left;">Stores Value</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;"></td>
+  </tr>
+  <tr class="odd">
+  <td style="text-align: left;">Fiat Currency</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;"></td>
+  </tr>
+  <tr class="even">
+  <td style="text-align: left;">Anonymous</td>
+  <td style="text-align: center;">pseudo</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;"></td>
+  </tr>
+  <tr class="odd">
+  <td style="text-align: left;">Central Ledger</td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;"></td>
+  <td style="text-align: center;">X</td>
+  </tr>
+  <tr class="even">
+  <td style="text-align: left;">Central Authority</td>
+  <td style="text-align: center;"></td>
+  <td style="text-align: center;">X</td>
+  <td style="text-align: center;">X</td>
+  </tr>
+  <tr class="odd">
+  <td style="text-align: left;">Reversible</td>
+  <td style="text-align: center;"></td>
+  <td style="text-align: center;"></td>
+  <td style="text-align: center;">X</td>
+  </tr>
+  </tbody>
+  </table>
+  </section>
+  <section id="bitcoin-components" class="slide level2">
+  <h2>BitCoin Components</h2>
+  <ul>
+  <li>Blockchain
+  <ul>
+  <li>Cryptographic Hash functions</li>
+  <li>Digital signatures</li>
+  <li>Transaction information</li>
+  </ul></li>
+  <li>Mining</li>
+  <li>Scripts</li>
+  <li>Rules</li>
+  </ul>
+  </section>
+  <section id="the-blockchain" class="slide level2">
+  <h2>The Blockchain</h2>
+  <figure>
+  <img src="img/Blockchain.svg" />
+  </figure>
+  </section>
+  <section id="big-numbers" class="slide level2">
+  <h2>Big Numbers</h2>
+  <div style="font-size:28pt">
+  <p><br /><span class="math display">$$2^{128} \\ = 340,282,366,920,938,463,463,374,607,431,768,211,456 \\ \approx 3 \times 10^{38}$$</span><br /></p>
+  <p>Odds of winning Powerball lottery four times: 1 in <br /><span class="math display">$$ \\ 7,290,021,363,225,027,714,833,921,447,179,536 \\ \approx 7 \times 10^{33}$$</span><br /></p>
+  </div>
+  </section>
+  <section id="cryptographic-hash-functions" class="slide level2">
+  <h2>Cryptographic Hash Functions</h2>
+  <div style="font-size:16pt">
+  <p>H(Doug) → aa1cda9fb50938bfd033eb7b79c4fc0b3ec87a18433bfa02c8d5a68f2c3157e2</p>
+  <p>H(Hawley Troxell) → 469b53d0d17fdc622bded61a6e4a5720bd25a290890ea01d7687167ec6a2f3c3</p>
+  <p>H(We the people of the United...) → 63a43b7fc439f05fbf2b0d25d40b860b426a6abeb087ead2b2c4cae0b95c839d</p>
+  <p>H(Star Wars as a compressed video) → 31c4ba98d4a14a71b6da13830f1c3c508cbf93c89a348d382f76070a23588d6b</p>
+  <p>H(Bob should pay Alice 4 BitCoins) → fef45d0c7e08bfafa7551e9ec27ee06c9fba6ef86665e1a8f77eeb23b495e1e9</p>
+  <p>H(Bob should pay Alice 5 BitCoins) → 3ef34acc394f1ac5d5671c339ffe65b5aa976f88862fe4e87c24b4e3f237cce0</p>
+  </div>
+  </section>
+  <section id="digital-signatures" class="slide level2">
+  <h2>Digital Signatures</h2>
+  <figure>
+  <img src="img/BitcoinDigitalSignature.svg" />
+  </figure>
+  </section>
+  <section id="the-blockchain-1" class="slide level2">
+  <h2>The Blockchain</h2>
+  <figure>
+  <img src="img/Blockchain.svg" width="900" />
+  </figure>
+  </section>
+  <section id="decentralization-and-mining" class="slide level2">
+  <h2>Decentralization and Mining</h2>
+  <figure>
+  <img src="img/Mining.svg" />
+  </figure>
+  </section>
+  <section id="mining" class="slide level2">
+  <h2>Mining</h2>
+  <ul>
+  <li>Proof of Work: Who does the most work?</li>
+  <li>Proof of Stake: Who's willing to bet the most?</li>
+  <li>Proof of Authority: Who's been designated?</li>
+  </ul>
+  </section>
+  <section id="scripts" class="slide level2">
+  <h2>Scripts</h2>
+  <p>All transactions include a script</p>
+  <p>Payments:</p>
+  <pre class="nohighlight"><code>  OP_DUP
+  OP_HASH160
+  69e02e18...
+  OP_EQUALVERIFY
+  OP_CHECKSIG</code></pre>
+  <p>BitCoin scripts are limited in what they can do (no loops)</p>
+  </section>
+  <section id="scripts-1" class="slide level2">
+  <h2>Scripts</h2>
+  <p>BitCoin Scripts can be used to:</p>
+  <ul>
+  <li>Destroy BitCoins (Proof of Burn)</li>
+  <li>Insert arbitrary data (also Proof of Burn)</li>
+  <li>Pay to a script, which is run by recipient</li>
+  <li>Escrow Payments (transactions require three signatures)</li>
+  <li>Efficient Micropayments (escrow adding up small payments)</li>
+  </ul>
+  </section>
+  <section id="rules" class="slide level2">
+  <h2>Rules</h2>
+  <p>To have a valid currency, we want to:</p>
+  <ul>
+  <li>Regularly and efficiently validate transaction blocks</li>
+  <li>Incentivize miners to do validations</li>
+  <li>Increase the supply of currency over time</li>
+  </ul>
+  </section>
+  <section id="rules-1" class="slide level2">
+  <h2>Rules</h2>
+  <p>To have a valid currency, we want to:</p>
+  <div style="font-size:28pt">
+  <ul>
+  <li>Regularly and efficiently validate transaction blocks
+  <ul>
+  <li>Bitcoin: Every 10 minutes</li>
+  <li>Ethereum: Every minute</li>
+  </ul></li>
+  <li>Incentivize miners to do validations
+  <ul>
+  <li>BitCoin: 25 BitCoins per block mined, transaction fees</li>
+  <li>Ethereum: 5 Ether per block mined, transaction &amp; Gas fees</li>
+  </ul></li>
+  <li>Increase the supply of currency over time
+  <ul>
+  <li>BitCoin: 25 BitCoins per block mined, halved every 210k blocks. Total: 21m</li>
+  <li>Ethereum: 60m start, 15m per year mined, no cap, but mining will change</li>
+  </ul></li>
+  </ul>
+  </div>
+  </section>
+  <section id="ethereum-scripts" class="slide level2">
+  <h2>Ethereum Scripts</h2>
+  <p>Difference between Ethereum and BitCoin: <strong>Scripts</strong></p>
+  <p>Ethereum scripts can do anything a computer can do</p>
+  <p>Require purchasing &quot;Gas&quot;</p>
+  </section>
+  <section id="ethereum-scripts-1" class="slide level2">
+  <h2>Ethereum Scripts</h2>
+  <p>Ethereum Scripts can be used to:</p>
+  <ul>
+  <li>Create complicated smart contracts</li>
+  <li>Create Distributed Autonomous Organizations (DAOs)</li>
+  <li>Do whatever as long as you pay for it (loops)</li>
+  </ul>
+  <pre><code>pragma solidity ^0.4.2;
+  // Proof of Existence contract, version 1
+  contract ProofOfExistence1 {
+    bytes32 public proof;
+    // calculate and store the proof for a document
+    function notarize(string document) {
+      proof = calculateProof(document);
+    }
+  // helper function to get a document&#39;s sha256
+    function calculateProof(string document) constant returns (bytes32) {
+      return sha256(document);
+    }
+  }</code></pre>
+  </section>
+  <section id="the-dao" class="slide level2">
+  <h2>The DAO</h2>
+  <figure>
+  <img src="img/dao.png" />
+  </figure>
+  </section>
+  <section id="blockchain-thoughts-the-good" class="slide level2">
+  <h2>Blockchain thoughts: The Good</h2>
+  <ul>
+  <li>BitCoin is currently a viable currency ($30B) <img src="img/market-capitalization.svg" style="float:right" width="300" height="200" /></li>
+  <li>Cryptocurrencies work well in the digital world
+  <ul>
+  <li>Micropayments</li>
+  <li>Low transaction fees</li>
+  <li>Guaranteed escrow</li>
+  </ul></li>
+  <li>Smart contracts</li>
+  <li>Innovation: LiteCoin, ZeroCoin, Monero, private blockchains, etc.</li>
+  </ul>
+  </section>
+  <section id="blockchain-the-good" class="slide level2">
+  <h2>Blockchain: The Good</h2>
+  <p><img src="img/wsj1.png" height="150" /> <img src="img/wsj2.png" height="150" /> <img src="img/wsj3.png" height="150" /></p>
+  </section>
+  <section id="blockchain-the-bad" class="slide level2">
+  <h2>Blockchain: The Bad</h2>
+  <p><img src="img/blockchain-oil.jpg" height="200" /> <img src="img/dilbert-chain.jpg" /></p>
+  </section>
+  <section id="blockchain-the-bad-1" class="slide level2">
+  <h2>Blockchain: The Bad</h2>
+  <figure>
+  <img src="img/hellscanyon.jpg" />
+  </figure>
+  </section>
+  <section id="blockchain-the-ugly" class="slide level2">
+  <h2>Blockchain: The Ugly</h2>
+  <figure>
+  <img src="img/WannaCrypt.jpg" />
+  </figure>
+  </section>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      width: 1024,
+      height: 768,
+      margin: 0.01,
+    // available themes are in /css/theme
+          theme: Reveal.getQueryHash().theme || 'white',
+        // default/cube/page/concave/zoom/linear/fade/none
+          transition: Reveal.getQueryHash().transition || 'none',
+        // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/chalkboard/chalkboard.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+    });
+  </script>
+
+</body>
+</html>

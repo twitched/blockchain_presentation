@@ -1,0 +1,8 @@
+[
+  {
+    "srcDir": ".",
+    "destDir": ".",
+    "files": "blockchain.markdown",
+    "command": "./create-revealjs.sh"
+  }
+]
