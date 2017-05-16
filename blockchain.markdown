@@ -226,3 +226,5 @@ contract ProofOfExistence1 {
 ## Blockchain: The Ugly
 
 ![](img/WannaCrypt.jpg)
+
+## Questions?
