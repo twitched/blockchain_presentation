@@ -7,8 +7,10 @@
 -   PhD, University of Arizona
 -   Illinois State University, 11 years
 -   Boise State University, since August
+-   Teaching: All InfoSec, Cryptography, Networking
+-   Research: Deception, policy compliance, Bayesian analysis
+-   This presentation: [https://twitched.github.io/blockchain_presentation/](https://twitched.github.io/blockchain_presentation/)
 -   @dtwitched
--   This presentation: https://twitched.github.io/blockchain_presentation/
 
 -----------------
 
@@ -33,15 +35,14 @@
 
 ## ₿itCoin
 
-|                   | BitCoin | Cash | Payment Card |
-|:------------------|:-------:|:----:|:------------:|
-| Use for Purchases |    X    |  X   |      X       |
-| Stores Value      |    X    |  X   |              |
-| Fiat Currency     |    X    |  X   |              |
-| Anonymous         | pseudo  |  X   |              |
-| Central Ledger    |    X    |      |      X       |
-| Central Authority |         |  X   |      X       |
-| Reversible        |         |      |      X       |
+|                   |  BitCoin  | Cash | Payment Card |
+|:------------------|:---------:|:----:|:------------:|
+| Use for Purchases |     X     |  X   |      X       |
+| Reversible        |           |      |      X       |
+| Stores Value      |     X     |  X   |              |
+| Anonymous         |  pseudo   |  X   |              |
+| Ledger            | consensus |      |   central    |
+| Central Authority |           |  X   |      X       |
 
 -----------------
 
@@ -218,8 +219,7 @@ contract ProofOfExistence1 {
 
 ## Blockchain: The Bad
 
-![](img/blockchain-oil.jpg){height=200}
-![](img/dilbert-chain.jpg)
+![](img/blockchain-oil.jpg)
 
 ## Blockchain: The Bad
 
