@@ -3,4 +3,4 @@ pandoc -t revealjs --template=template-revealjs.html \
   --variable theme="white" \
   --variable transition="none" \
 	--variable highlight-style="github" \
-  blockchain.markdown -o blockchain.html
+  blockchain.markdown -o index.html
