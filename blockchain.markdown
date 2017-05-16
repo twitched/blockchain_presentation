@@ -8,6 +8,7 @@
 -   Illinois State University, 11 years
 -   Boise State University, since August
 -   @dtwitched
+-   This presentation: https://twitched.github.io/blockchain_presentation/
 
 -----------------
 
