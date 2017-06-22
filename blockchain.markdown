@@ -1,6 +1,6 @@
 % BitCoin and the Blockchain
 % Doug Twitchell
-% May 16, 2016
+% May 16, 2017
 
 ## Doug Twitchell
 
